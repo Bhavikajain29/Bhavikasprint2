@@ -1,0 +1,19 @@
+#r "Newtonsoft.Json"
+
+using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Primitives;
+using Newtonsoft.Json;
+using System.Data.SqlClient;
+
+public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
+{
+    string ConnectionString = "Data Source=bhavikaserver.database.windows.net;Initial Catalog=bhavikaDB;User ID=bhavika;Password=Jain@901198";
+            SqlConnection connection = new SqlConnection(ConnectionString);
+            connection.Open();
+            var query = "Update Products set AvailableQ=10 where AvailableQ=0";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.ExecuteNonQuery();
+
+            return null;
+}

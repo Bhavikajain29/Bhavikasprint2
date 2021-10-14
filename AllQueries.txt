@@ -1,0 +1,35 @@
+CREATE TABLE [dbo].[Products]
+(
+    [Id] INT NOT NULL PRIMARY KEY IDENTITY,
+    [ProductName] NVARCHAR(50) NOT NULL,
+    [ProductImage] NVARCHAR(Max) NOT NULL,
+    [Price] INT NOT NULL,
+    [AvailableQ] INT NOT NULL
+)
+insert into [dbo].[Products] values ('Phone','https://marutisprintstorage45.blob.core.windows.net/mediastore/phone.jpg',50000,5)
+
+-----------------------------------------------
+
+insert into [dbo].[Products] values ('Laptop','https://marutisprintstorage45.blob.core.windows.net/mediastore/laptop.jpg',75000,5)
+
+----------------------------------------------
+
+insert into [dbo].[Products] values ('Tv','https://marutisprintstorage45.blob.core.windows.net/mediastore/tv.jpg',75000,5)
+
+-----------------------------------------------
+insert into [dbo].[Products] values ('Xbox','https://marutisprintstorage45.blob.core.windows.net/mediastore/xbox.jpg',75000,5)
+
+===============================================================
+
+
+---------------------------------------------
+
+CREATE TABLE [dbo].[Order]
+(
+    [Id] INT NOT NULL PRIMARY KEY IDENTITY,
+    [PId] INT NOT NULL FOREIGN KEY REFERENCES Product(Id),
+    [OderDate] DATETIME NOT NULL,
+    [CustomerName] NVARCHAR(50) NOT NULL 	
+)
+
+----------------------------------------------

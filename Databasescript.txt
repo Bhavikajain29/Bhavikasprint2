@@ -1,0 +1,21 @@
+CREATE TABLE [dbo].[Products]
+(
+    [Id] INT NOT NULL PRIMARY KEY IDENTITY,
+    [ProductName] NVARCHAR(50) NOT NULL,
+    [ProductImage] NVARCHAR(Max) NOT NULL,
+    [Price] INT NOT NULL,
+    [AvailableQ] INT NOT NULL
+)
+
+
+---------------------------------------------
+
+CREATE TABLE [dbo].[Order]
+(
+    [Id] INT NOT NULL PRIMARY KEY IDENTITY,
+    [PId] INT NOT NULL FOREIGN KEY REFERENCES Product(Id),
+    [OderDate] DATETIME NOT NULL,
+    [CustomerName] NVARCHAR(50) NOT NULL 	
+)
+
+----------------------------------------------
